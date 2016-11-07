@@ -1,0 +1,24 @@
+﻿<Page x:Class="NBMFS.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBMFS"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="750"
+      Title="MainPage">
+
+    <Grid Background="#FFFFFF">
+        <Label x:Name="ManualLbl" Content="To manually input message, click here: " HorizontalAlignment="Left" Margin="41,80,0,0" VerticalAlignment="Top" Width="237" Background="White" FontWeight="Bold"/>
+        <Label x:Name="AutoLbl" Content="To load messages from a file, click here: " HorizontalAlignment="Left" Margin="41,130,0,0" VerticalAlignment="Top" Width="237" Background="White" BorderBrush="Black" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="49" Width="742" FontSize="25" FontWeight="Bold" TextAlignment="Center"/>
+        <Button x:Name="manualBtn" Content="Click" HorizontalAlignment="Left" Margin="358,80,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="manualBtn_Click"/>
+        <Button x:Name="autoBtn" Content="Click" HorizontalAlignment="Left" Margin="358,130,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
+        <Label x:Name="displayAllLbl" Content="To view all messages, click here: " Margin="41,180,472,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,-0.101" FontWeight="Bold"/>
+        <Button x:Name="viewAllBtn" Content="Click" HorizontalAlignment="Left" Margin="358,180,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" RenderTransformOrigin="0.423,-2.247"/>
+        <Label x:Name="showSingleLbl" Content="To view messages one by one, click here:" Margin="41,230,464,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="1.048,1.07"/>
+        <Button x:Name="viewSingleBtn" Content="Click" HorizontalAlignment="Left" Margin="358,230,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
+        <Label x:Name="viewTrendsBtn" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,280,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
+        <Button x:Name="viewTrendsBtn1" Content="Click" HorizontalAlignment="Left" Margin="358,280,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
+    </Grid>
+</Page>
