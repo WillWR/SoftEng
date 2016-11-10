@@ -46,6 +46,10 @@ namespace NBMFS
         {
             return urlList[i].QuarantinedUrl;
         }
+        public int getSize()
+        {
+            return urlList.Count;
+        }
     }
 
     class Url

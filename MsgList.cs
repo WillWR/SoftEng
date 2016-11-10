@@ -60,4 +60,21 @@ namespace NBMFS
             return messageList.Count;
         }
     }
+
+    class Message
+    {
+        public string id { get; set; }
+        public string sender { get; set; }
+        public string subject { get; set; }
+        public string content { get; set; }
+
+        public Message(string i, string sen, string sub, string con)
+        {
+            this.id = i;
+            this.sender = sen;
+            this.subject = sen;
+            this.content = con;
+        }
+    }
+
 }

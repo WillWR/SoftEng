@@ -1,0 +1,23 @@
+﻿<Page x:Class="NBMFS.Quarantine"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBMFS"
+      mc:Ignorable="d"
+      Title="Quarantine" Background="White" Height="500" Width="700">
+
+    <Grid Margin="0,0,0,65">
+        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" Margin="286,355,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="backBtn_Click"/>
+        <Label x:Name="qUrlLbl" Content="Quarantined URLs" Margin="198,10,236,0" Width="266" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <ListView x:Name="quarantineURL" HorizontalAlignment="Left" Height="262" Margin="173,57,0,0" VerticalAlignment="Top" Width="298">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+</Page>

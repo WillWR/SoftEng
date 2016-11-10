@@ -35,18 +35,14 @@ namespace NBMFS
 
         private void viewSingleBtn_Click(object sender, RoutedEventArgs e)
         {
-            MsgList list = new MsgList();
-            
-            if(list.getSize()!=0)
-            {
                 DisplayOne dO = new DisplayOne();
-                this.NavigationService.Navigate(dO);
-            }
-            else
-            {
-                statusBox.Text = "No message to load, Please either enter manually or load from file";
-            }
-            
+                this.NavigationService.Navigate(dO);              
+        }
+
+        private void urlsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Quarantine q = new Quarantine();
+            this.NavigationService.Navigate(q);
         }
     }
 }

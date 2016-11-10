@@ -86,15 +86,16 @@ namespace NBMFS
                             //EMAIL CONTENT FOR URL CHECKER STARTS
                             if(addContentBox.Text.Contains("http://"))
                             {
+                                string temp = " " + addContentBox.Text + " ";
                                 String secondHalf;
                                 String firstHalf;
                                 String replace = "<URL Quanantined>";
                                 string del = "http://";
-                                int i = addContentBox.Text.LastIndexOf(del);
-                                string copy = addContentBox.Text.Remove(0, i+1);
-                                String url = copy.Substring(0, copy.IndexOf(""));
+                                int i = temp.LastIndexOf(del);
+                                string copy = temp.Remove(0, i);
+                                String url = copy.Substring(0, copy.IndexOf(" "));
                                 secondHalf = copy.Remove(0, copy.IndexOf(" ")); 
-                                firstHalf = addContentBox.Text.Substring(0, i-1);
+                                firstHalf = temp.Substring(0, i-1);
                                 addContentBox.Text = firstHalf + " " + replace + " " +secondHalf;
                                 urlQuarantineList uList = urlQuarantineList.Instance();
                                 Url u = new Url(addIdBox.Text, url);

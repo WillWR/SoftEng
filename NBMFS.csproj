@@ -56,9 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HashTags.cs" />
-    <Compile Include="Sir.cs" />
+    <Compile Include="Quarantine.xaml.cs">
+      <DependentUpon>Quarantine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SirList.cs" />
-    <Compile Include="Tags.cs" />
     <Compile Include="urlQuarantineList.cs" />
     <Page Include="DisplayOne.xaml">
       <SubType>Designer</SubType>
@@ -90,12 +91,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Quarantine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManualForm.xaml.cs">
       <DependentUpon>ManualForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Message.cs" />
     <Compile Include="MsgList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

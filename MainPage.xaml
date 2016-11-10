@@ -18,8 +18,10 @@
         <Button x:Name="viewAllBtn" Content="Click" HorizontalAlignment="Left" Margin="358,180,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" RenderTransformOrigin="0.423,-2.247"/>
         <Label x:Name="showSingleLbl" Content="To view messages one by one, click here:" Margin="41,230,464,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="1.048,1.07"/>
         <Button x:Name="viewSingleBtn" Content="Click" HorizontalAlignment="Left" Margin="358,230,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
-        <Label x:Name="viewTrendsBtn" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,280,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
+        <Label x:Name="viewTrendsLbl" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,280,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
         <Button x:Name="viewTrendsBtn1" Content="Click" HorizontalAlignment="Left" Margin="358,280,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
-        <TextBox x:Name="statusBox" HorizontalAlignment="Left" Height="29" Margin="41,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" BorderThickness="0"/>
+        <TextBox x:Name="statusBox" HorizontalAlignment="Left" Height="29" Margin="41,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" BorderThickness="0"/>
+        <Label x:Name="viewUrlLbl" Content="To view quarantined URL, click here:" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
+        <Button x:Name="urlsBtn" Content="Click" HorizontalAlignment="Left" Margin="358,331,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="urlsBtn_Click"/>
     </Grid>
 </Page>
