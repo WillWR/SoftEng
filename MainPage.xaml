@@ -20,5 +20,6 @@
         <Button x:Name="viewSingleBtn" Content="Click" HorizontalAlignment="Left" Margin="358,230,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
         <Label x:Name="viewTrendsBtn" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,280,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
         <Button x:Name="viewTrendsBtn1" Content="Click" HorizontalAlignment="Left" Margin="358,280,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
+        <TextBox x:Name="statusBox" HorizontalAlignment="Left" Height="29" Margin="41,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" BorderThickness="0"/>
     </Grid>
 </Page>

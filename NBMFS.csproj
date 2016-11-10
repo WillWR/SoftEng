@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HashTags.cs" />
     <Compile Include="Sir.cs" />
     <Compile Include="SirList.cs" />
+    <Compile Include="Tags.cs" />
     <Compile Include="urlQuarantineList.cs" />
     <Page Include="DisplayOne.xaml">
       <SubType>Designer</SubType>

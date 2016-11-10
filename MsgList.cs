@@ -54,5 +54,10 @@ namespace NBMFS
         {
             return messageList[i].content;
         }
+
+        public int getSize()
+        {
+            return messageList.Count;
+        }
     }
 }

@@ -57,6 +57,16 @@ namespace NBMFS
         {
             return sirList[i].nOI;
         }
+        //Method for showing serious incident report nature of incident from list index(i)
+        public string showCon(int i)
+        {
+            return sirList[i].content;
+        }
+
+        public int getSize()
+        {
+            return sirList.Count;
+        }
     }
 }
 
