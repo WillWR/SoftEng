@@ -87,6 +87,24 @@ namespace NBMFS
                 writeTags.WriteLine(json);
             }
             writeTags.Close();
+
+            StreamWriter writeMen = new StreamWriter(@"jsonMen.txt");
+            Mentions men = Mentions.Instance();
+            for(int i=0;i<men.getSize();i++)
+            {
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(men.getTid(i));
+                writeMen.WriteLine(json);
+            }
+            writeMen.Close();
+
+            StreamWriter writeSir = new StreamWriter(@"jsonSir.txt");
+            SirList sir = SirList.Instance();
+            for(int i = 0; i<sir.getSize();i++)
+            {
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(sir.getSir(i));
+                writeSir.WriteLine(json);
+            }
+            writeSir.Close();
         }
 
         private void autoBtn_Click(object sender, RoutedEventArgs e)
@@ -143,7 +161,7 @@ namespace NBMFS
             try
             {
                 var reader3 = new StreamReader(File.OpenRead(@"jsonTags.txt"));
-                List<String> rows3 = new List<string>();
+                List<string> rows3 = new List<string>();
                 while(!reader3.EndOfStream)
                 {
                     rows3.Add(reader3.ReadLine());
@@ -162,6 +180,52 @@ namespace NBMFS
                 statusBox.Text = "Tags file not found, please input messages manually and ensure you write to file before closing";
             }
 
+            Mentions men = Mentions.Instance();
+            try
+            {
+                var reader4 = new StreamReader(File.OpenRead(@"jsonMen.txt"));
+                List<string> rows4 = new List<string>();
+                while(!reader4.EndOfStream)
+                {
+                    rows4.Add(reader4.ReadLine());
+                }
+                reader4.Close();
+                foreach(string r in rows4)
+                {
+                    Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
+                    TwitterIds tid = new TwitterIds(values["id"]);
+
+                    men.addTid(tid);
+                }
+            }
+            catch(Exception ex)
+            {
+                statusBox.Text = "Mentions file not found, please input messages manually and ensure you write to file before closing";
+            }
+
+            SirList sir = SirList.Instance();
+            try
+            {
+                var reader5 = new StreamReader(File.OpenRead(@"jsonSir.txt"));
+                List<string> rows5 = new List<string>();
+                while(!reader5.EndOfStream)
+                {
+                    rows5.Add(reader5.ReadLine());
+                }
+                reader5.Close();
+                foreach(string r in rows5)
+                {
+                    Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
+                    Sir s = new Sir(values["id"], values["sender"], values["sirCode"], values["nOI"], values["subject"], values["content"]);
+
+                    sir.addSir(s);
+                }
+            }
+            catch(Exception ex)
+            {
+                statusBox.Text = "SirList file not found, please input messages manually and ensure you write to file before closing";
+            }
+
         }
 
         private void viewAllBtn_Click(object sender, RoutedEventArgs e)
@@ -178,6 +242,12 @@ namespace NBMFS
             {
                 statusBox.Text = "No messages to view, please load from json file or input manually"; 
             }   
+        }
+
+        private void viewTrendsBtn1_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayTrends dT = new DisplayTrends();
+            this.NavigationService.Navigate(dT);
         }
     }
 }

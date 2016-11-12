@@ -314,6 +314,38 @@ namespace NBMFS
                                 copy = first.Substring(first.IndexOf(del)+1);
                             }//WHILE LOOP TO GATHER ALL HASHTAGS ENDS
                         }//TWEET HASHTAG CHECKER ENDS
+
+                        //TWEET MENTIONS CHECKER STARTS
+                        string mentionCheck = @"(@[[:ascii:]]{0,15})";
+                        if (Regex.IsMatch(addContentBox.Text, mentionCheck))
+                        {
+                            Mentions m = Mentions.Instance();
+                            string copy = addContentBox.Text;
+                            //WHILE LOOP TO GATHER ALL HASHTAGS STARTS
+                            while (Regex.IsMatch(copy, mentionCheck))
+                            {
+                                string first;
+                                string ids;
+                                string del = "@";
+
+                                first = copy.Substring(copy.IndexOf(del));
+                                //IF CONDITION FOR A SPACE BEING LEFT IN THE STRING STARTS
+                                if (first.Contains(" "))
+                                {
+                                    ids = first.Substring(0, first.IndexOf(" "));
+                                }//IF CONDITION FOR A SPACE BEING LEFT IN THE STRING ENDS
+                                //ELSE CONDITION FOR A SPACE BEING LEFT IN THE STRING STARTS
+                                else
+                                {
+                                    ids = first.Substring(0);
+                                }//ELSE CONDITION FOR A SPACE BEING LEFT IN THE STRING ENDS
+                                TwitterIds tid = new TwitterIds(ids);
+                                m.addTid(tid);
+                                copy = first.Substring(first.IndexOf(del) + 1);
+                            }//WHILE LOOP TO GATHER ALL HASHTAGS ENDS
+                        }//TWEET HASHTAG CHECKER ENDS
+
+
                         //IF CONDITION TO ADD MESSAGE IF LENGTH UNDER 140 STARTS
                         if (addContentBox.Text.Length < 140)
                         {

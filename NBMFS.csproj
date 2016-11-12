@@ -63,7 +63,11 @@
     <Compile Include="DisplayAll.xaml.cs">
       <DependentUpon>DisplayAll.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DisplayTrends.xaml.cs">
+      <DependentUpon>DisplayTrends.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HashTags.cs" />
+    <Compile Include="Mentions.cs" />
     <Compile Include="Quarantine.xaml.cs">
       <DependentUpon>Quarantine.xaml</DependentUpon>
     </Compile>
@@ -74,6 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DisplayOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayTrends.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

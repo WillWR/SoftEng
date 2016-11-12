@@ -25,7 +25,6 @@ namespace NBMFS
             InitializeComponent();
 
             HashTags t = HashTags.Instance();
-            Console.WriteLine(t.getSize());
 
             urlQuarantineList u = urlQuarantineList.Instance();
             int size = u.getSize();

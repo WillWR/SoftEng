@@ -67,6 +67,11 @@ namespace NBMFS
         {
             return sirList.Count;
         }
+
+        public Sir getSir(int i)
+        {
+            return sirList[i];
+        }
     }
 
     class Sir
@@ -86,7 +91,7 @@ namespace NBMFS
             this.sender = sen;
             this.sirCode = sirCode;
             this.nOI = nOI;
-            this.subject = sen;
+            this.subject = sub;
             this.content = con;
         }
 

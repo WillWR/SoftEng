@@ -23,19 +23,11 @@
         <Label x:Name="showSingleLbl" Content="To view messages one by one, click here:" Margin="41,212,397,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="1.048,1.07"/>
         <Button x:Name="viewSingleBtn" Content="Click" Margin="358,212,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
         <Label x:Name="viewTrendsLbl" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,262,0,0" VerticalAlignment="Top" Width="312" FontWeight="Bold" Height="26"/>
-        <Button x:Name="viewTrendsBtn1" Content="Click" Margin="358,262,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold"/>
+        <Button x:Name="viewTrendsBtn1" Content="Click" Margin="358,262,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="viewTrendsBtn1_Click"/>
         <TextBox x:Name="statusBox" HorizontalAlignment="Left" Margin="41,391,0,73" TextWrapping="Wrap" Width="439" BorderThickness="0"/>
         <Label x:Name="viewUrlLbl" Content="To view quarantined URL, click here:" HorizontalAlignment="Left" Margin="41,313,0,0" VerticalAlignment="Top" Width="317" FontWeight="Bold" Height="26"/>
         <Button x:Name="urlsBtn" Content="Click" Margin="358,313,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="urlsBtn_Click"/>
         <Label x:Name="addToJsonLbl" Content="To write all message to Json file, click here:" Margin="41,357,397,114" FontWeight="Bold"/>
         <Button x:Name="addtoJsonBtn" Content="Click" Margin="358,357,270,114" FontWeight="Bold" Click="addtoJsonBtn_Click"/>
-        <Label x:Name="trendLbl" Content="Trending" HorizontalAlignment="Left" Height="26" Margin="497,62,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold"/>
-        <ListView x:Name="trendBox" HorizontalAlignment="Left" Height="293" Margin="497,93,0,0" VerticalAlignment="Top" Width="119">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </Page>
