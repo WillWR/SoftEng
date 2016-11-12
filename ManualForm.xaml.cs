@@ -165,6 +165,7 @@ namespace NBMFS
                             {
                                 rows.Add(reader.ReadLine());
                             }//WHILE LOOP TO READ TEXTWORD FILE END
+                            reader.Close();
                             String replace;
                             //FOREACH FOR FILE ROW TO LIST START
                             foreach(string r in rows)
@@ -252,6 +253,7 @@ namespace NBMFS
                             {
                                 rows.Add(reader.ReadLine());
                             }//WHILE LOOP TO READ TEXTWORD FILE END
+                            reader.Close();
                             String replace;
                             //FOREACH FOR FILE ROW TO LIST START
                             foreach (string r in rows)
@@ -287,7 +289,7 @@ namespace NBMFS
                         string hashCheck = @"(#([a-zA-Z0-9]+))";
                         if(Regex.IsMatch(addContentBox.Text, hashCheck))
                         {
-                            HashTags t = new HashTags();
+                            HashTags t = HashTags.Instance();
                             string copy = addContentBox.Text;
                             //WHILE LOOP TO GATHER ALL HASHTAGS STARTS
                             while(Regex.IsMatch(copy, hashCheck))
@@ -307,7 +309,7 @@ namespace NBMFS
                                 {
                                     tag = first.Substring(0);
                                 }//ELSE CONDITION FOR A SPACE BEING LEFT IN THE STRING ENDS
-                                Tags hT = new Tags(addIdBox.Text,tag);
+                                Tags hT = new Tags(addIdBox.Text, tag);
                                 t.addTag(hT);
                                 copy = first.Substring(first.IndexOf(del)+1);
                             }//WHILE LOOP TO GATHER ALL HASHTAGS ENDS

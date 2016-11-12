@@ -1,5 +1,6 @@
 ﻿//The MsgList class uses the singleton pattern to hold a List of Message objects that can be globally accessed and altered from all pages in the application.
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,11 @@ namespace NBMFS
         {
             return messageList[i].id;
         }
+        //Method for showing message sender from list index(i)
+        public string showSender(int i)
+        {
+            return messageList[i].sender;
+        }
         //Method for showing message subject from list index(i)
         public string showSub(int i)
         {
@@ -54,10 +60,15 @@ namespace NBMFS
         {
             return messageList[i].content;
         }
-
+        //Method to return size of list at current state.
         public int getSize()
         {
             return messageList.Count;
+        }
+        //Method to return message object at list index(i)
+        public Message getMessage(int i)
+        {
+            return messageList[i];
         }
     }
 
@@ -72,7 +83,7 @@ namespace NBMFS
         {
             this.id = i;
             this.sender = sen;
-            this.subject = sen;
+            this.subject = sub;
             this.content = con;
         }
     }

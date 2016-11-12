@@ -8,20 +8,34 @@
       d:DesignHeight="500" d:DesignWidth="750"
       Title="MainPage">
 
-    <Grid Background="#FFFFFF">
-        <Label x:Name="ManualLbl" Content="To manually input message, click here: " HorizontalAlignment="Left" Margin="41,80,0,0" VerticalAlignment="Top" Width="237" Background="White" FontWeight="Bold"/>
-        <Label x:Name="AutoLbl" Content="To load messages from a file, click here: " HorizontalAlignment="Left" Margin="41,130,0,0" VerticalAlignment="Top" Width="237" Background="White" BorderBrush="Black" FontWeight="Bold"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="49" Width="742" FontSize="25" FontWeight="Bold" TextAlignment="Center"/>
-        <Button x:Name="manualBtn" Content="Click" HorizontalAlignment="Left" Margin="358,80,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="manualBtn_Click"/>
-        <Button x:Name="autoBtn" Content="Click" HorizontalAlignment="Left" Margin="358,130,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
-        <Label x:Name="displayAllLbl" Content="To view all messages, click here: " Margin="41,180,472,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,-0.101" FontWeight="Bold"/>
-        <Button x:Name="viewAllBtn" Content="Click" HorizontalAlignment="Left" Margin="358,180,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" RenderTransformOrigin="0.423,-2.247"/>
-        <Label x:Name="showSingleLbl" Content="To view messages one by one, click here:" Margin="41,230,464,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="1.048,1.07"/>
-        <Button x:Name="viewSingleBtn" Content="Click" HorizontalAlignment="Left" Margin="358,230,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
-        <Label x:Name="viewTrendsLbl" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,280,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
-        <Button x:Name="viewTrendsBtn1" Content="Click" HorizontalAlignment="Left" Margin="358,280,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold"/>
-        <TextBox x:Name="statusBox" HorizontalAlignment="Left" Height="29" Margin="41,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" BorderThickness="0"/>
-        <Label x:Name="viewUrlLbl" Content="To view quarantined URL, click here:" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold"/>
-        <Button x:Name="urlsBtn" Content="Click" HorizontalAlignment="Left" Margin="358,331,0,0" VerticalAlignment="Top" Width="122" Height="26" FontWeight="Bold" Click="urlsBtn_Click"/>
+    <Grid Background="#FFFFFF" Height="500" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="ManualLbl" Content="To manually input message, click here: " HorizontalAlignment="Left" Margin="41,62,0,0" VerticalAlignment="Top" Width="312" Background="White" FontWeight="Bold" Height="26"/>
+        <Label x:Name="AutoLbl" Content="To load messages from a file, click here: " HorizontalAlignment="Left" Margin="41,112,0,0" VerticalAlignment="Top" Width="312" Background="White" BorderBrush="Black" FontWeight="Bold" Height="26"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="49" Width="750" FontSize="25" FontWeight="Bold" TextAlignment="Center"/>
+        <Button x:Name="manualBtn" Content="Click" Margin="358,62,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="manualBtn_Click"/>
+        <Button x:Name="autoBtn" Content="Click" Margin="358,112,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="autoBtn_Click"/>
+        <Label x:Name="displayAllLbl" Content="To view all messages, click here: " Margin="41,162,392,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,-0.101" FontWeight="Bold" Height="26"/>
+        <Button x:Name="viewAllBtn" Content="Click" Margin="358,162,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="0.423,-2.247" Click="viewAllBtn_Click"/>
+        <Label x:Name="showSingleLbl" Content="To view messages one by one, click here:" Margin="41,212,397,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" RenderTransformOrigin="1.048,1.07"/>
+        <Button x:Name="viewSingleBtn" Content="Click" Margin="358,212,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="viewSingleBtn_Click"/>
+        <Label x:Name="viewTrendsLbl" Content="To view messages by trends, click here:" HorizontalAlignment="Left" Margin="41,262,0,0" VerticalAlignment="Top" Width="312" FontWeight="Bold" Height="26"/>
+        <Button x:Name="viewTrendsBtn1" Content="Click" Margin="358,262,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold"/>
+        <TextBox x:Name="statusBox" HorizontalAlignment="Left" Margin="41,391,0,73" TextWrapping="Wrap" Width="439" BorderThickness="0"/>
+        <Label x:Name="viewUrlLbl" Content="To view quarantined URL, click here:" HorizontalAlignment="Left" Margin="41,313,0,0" VerticalAlignment="Top" Width="317" FontWeight="Bold" Height="26"/>
+        <Button x:Name="urlsBtn" Content="Click" Margin="358,313,270,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Click="urlsBtn_Click"/>
+        <Label x:Name="addToJsonLbl" Content="To write all message to Json file, click here:" Margin="41,357,397,114" FontWeight="Bold"/>
+        <Button x:Name="addtoJsonBtn" Content="Click" Margin="358,357,270,114" FontWeight="Bold" Click="addtoJsonBtn_Click"/>
+        <Label x:Name="trendLbl" Content="Trending" HorizontalAlignment="Left" Height="26" Margin="497,62,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold"/>
+        <ListView x:Name="trendBox" HorizontalAlignment="Left" Height="293" Margin="497,93,0,0" VerticalAlignment="Top" Width="119">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

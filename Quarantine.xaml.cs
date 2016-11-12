@@ -23,6 +23,10 @@ namespace NBMFS
         public Quarantine()
         {
             InitializeComponent();
+
+            HashTags t = HashTags.Instance();
+            Console.WriteLine(t.getSize());
+
             urlQuarantineList u = urlQuarantineList.Instance();
             int size = u.getSize();
             for (int i = 0; i < size; i++)

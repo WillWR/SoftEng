@@ -50,6 +50,10 @@ namespace NBMFS
         {
             return urlList.Count;
         }
+        public Url getUrl(int i)
+        {
+            return urlList[i];
+        }
     }
 
     class Url

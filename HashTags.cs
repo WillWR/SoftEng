@@ -12,52 +12,56 @@ namespace NBMFS
         private List<Tags> tagList = null;
 
         private static readonly object syncRoot = new object();
-        //Constructor for class, creates new list if no instance is currently present.
+        //Constructor for class, creates new list if no instance is currently present;
         public HashTags()
         {
-            if (tagList == null)
+            if(tagList == null)
             {
                 tagList = new List<Tags>();
             }
         }
-        //Checks to see if any list instance is currently active. If active instance is present, returns instance.
+        //Checks to see if any list instance is currently active. if active instance is present, returns instance.
         public static HashTags Instance()
         {
-            if (instance == null)
+            if(instance == null)
             {
-                lock (syncRoot)
+                lock(syncRoot)
                 {
                     instance = new HashTags();
                 }
             }
             return instance;
         }
-        //Method for adding new serious incident reports to the list.
-        public void addTag(Tags m)
+
+        public void addTag(Tags t)
         {
-            tagList.Add(m);
+            tagList.Add(t);
         }
-        //method for showing serious incident reports id from list index(i)
-        public string showTags(int i)
+
+        public string showID(int i)
+        {
+            return tagList[i].id;
+        }
+
+        public string showTag(int i)
         {
             return tagList[i].tag;
         }
 
-        public string ShowID(int i)
-        {
-            return tagList[i].id;
-        }
         public int getSize()
         {
             return tagList.Count;
         }
 
+        public Tags getTag(int i)
+        {
+            return tagList[i];
+        }
     }
-
     class Tags
     {
-        public string tag { get; set; }
         public string id { get; set; }
+        public string tag { get; set; }    
 
         public Tags(string id, string t)
         {

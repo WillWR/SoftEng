@@ -1,0 +1,21 @@
+﻿<Page x:Class="NBMFS.DisplayAll"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBMFS"
+      mc:Ignorable="d"
+      Title="displayAll" Background="White" Height="500" Width="700">
+
+    <Grid>
+        <ListView x:Name="messageView" HorizontalAlignment="Left" Height="275" Margin="47,45,0,0" VerticalAlignment="Top" Width="482">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="47,332,0,0" VerticalAlignment="Top" Width="86" Height="21" FontWeight="Bold" Click="back_Click"/>
+
+    </Grid>
+</Page>
