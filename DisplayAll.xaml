@@ -5,17 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NBMFS"
       mc:Ignorable="d"
-      Title="displayAll" Background="White" Height="500" Width="700">
+      Title="displayAll" Background="White" Height="750" Width="1000">
 
-    <Grid>
-        <ListView x:Name="messageView" HorizontalAlignment="Left" Height="275" Margin="47,45,0,0" VerticalAlignment="Top" Width="482">
+    <Grid Margin="0,0,0,10">
+        <ListView x:Name="messageView" HorizontalAlignment="Left" Height="558" Margin="119,58,0,0" VerticalAlignment="Top" Width="757">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="47,332,0,0" VerticalAlignment="Top" Width="86" Height="21" FontWeight="Bold" Click="back_Click"/>
-
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="119,621,0,0" VerticalAlignment="Top" Width="150" Height="45" FontWeight="Bold" Click="back_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="24" Width="1000" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Display All Messages" Height="24" Width="980" FontWeight="Bold" TextAlignment="Center" Margin="10,29,0,697"/>
     </Grid>
 </Page>

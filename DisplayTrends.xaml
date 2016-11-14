@@ -5,26 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NBMFS"
       mc:Ignorable="d" 
-      Title="DisplayTrends" Background="White" Height="500" Width="700">
+      Title="DisplayTrends" Background="White" Height="750" Width="1000">
 
     <Grid>
-        <Button x:Name="back" Content="Back" Margin="82,412,489,52" FontWeight="Bold" Click="back_Click"/>
-        <ListView x:Name="trendsView" HorizontalAlignment="Left" Margin="82,68,0,132" Width="160">
+        <Button x:Name="back" Content="Back" Margin="414,620,436,85" Width="150" Height="45" FontWeight="Bold" Click="back_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="24" Width="990" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="View Hashtags and Mentions" Height="24" Width="980" FontWeight="Bold" TextAlignment="Center" Margin="10,24,0,702"/>
+        <ListView x:Name="trendsView" HorizontalAlignment="Left" Margin="160,107,0,148" Width="300">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="mentionsView" Margin="264,68,276,132">
+        <ListView x:Name="mentionsView" Margin="522,107,176,148">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="trendsLbl" Content="Trending Hashtags" HorizontalAlignment="Left" Height="37" Margin="80,26,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold"/>
-        <Label x:Name="mentionsLbl" Content="Mentions" HorizontalAlignment="Left" Height="37" Margin="264,26,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
+        <Label x:Name="trendsLbl" Content="Trending Hashtags" HorizontalAlignment="Left" Height="37" Margin="158,65,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold"/>
+        <Label x:Name="mentionsLbl" Content="Mentions" HorizontalAlignment="Left" Height="37" Margin="522,65,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
 
     </Grid>
 </Page>

@@ -72,6 +72,9 @@
       <DependentUpon>Quarantine.xaml</DependentUpon>
     </Compile>
     <Compile Include="SirList.cs" />
+    <Compile Include="SirView.xaml.cs">
+      <DependentUpon>SirView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="urlQuarantineList.cs" />
     <Page Include="DisplayAll.xaml">
       <SubType>Designer</SubType>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Quarantine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SirView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

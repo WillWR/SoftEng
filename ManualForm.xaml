@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NBMFS"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="750"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="ManualForm">
 
     <Grid Background="#FFFFFF">
@@ -13,18 +13,16 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="24" Width="742" FontWeight="Bold" TextAlignment="Center"/>
-        <Button x:Name="addBtn" Content="Add Message" Margin="280,306,332,0" VerticalAlignment="Top" RenderTransformOrigin="1.72,0.935" FontWeight="Bold" Click="addBtn_Click" Height="20"/>
-        <Label x:Name="addIdLbl" Content="Add Message ID" Margin="40,24,39,0" VerticalAlignment="Top" Height="25" FontSize="10" RenderTransformOrigin="0.481,1.166"/>
-        <TextBox x:Name="addIdBox" Height="23" Margin="40,49,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.772"/>
-        <Label x:Name="addSubjectLbl" Content="Add Message Subject" Margin="40,134,39,0" VerticalAlignment="Top" RenderTransformOrigin="0.616,-0.702" FontSize="10" Height="23"/>
-        <TextBox x:Name="addSubjectBox" Height="23" Margin="40,162,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.504,1.229"/>
-        <Label x:Name="addContentLbl" Content="Add Message Content" Margin="40,190,39,0" VerticalAlignment="Top" Height="22" FontSize="10"/>
-        <TextBox x:Name="addContentBox" Height="84" Margin="40,217,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.502,1.131"/>
-        <Button x:Name="backManual" Content="Back" HorizontalAlignment="Left" Margin="10,381,0,0" VerticalAlignment="Top" Width="108" FontWeight="Bold" Click="backManual_Click" Height="20" />
-        <Label x:Name="addSenderLbl" Content="Add Message Sender" Margin="40,78,39,0" VerticalAlignment="Top" RenderTransformOrigin="0.616,-0.702" FontSize="10" Height="23"/>
-        <TextBox x:Name="addSenderBox" Height="23" Margin="40,106,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.504,1.229"/>
-        <TextBox x:Name="statusLbl" HorizontalAlignment="Left" Height="23" Margin="40,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="671" BorderThickness="0"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="24" Width="990" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Display Messages One by One" Height="24" Width="990" FontWeight="Bold" TextAlignment="Center" Margin="0,24,0,702"/>
+        <Button x:Name="addBtn" Content="Add Message"  VerticalAlignment="Top" FontWeight="Bold" Click="addBtn_Click" Height="45"  Width="150" Margin="426,516,400,0" />
+        <Label x:Name="addIdLbl" Content="Add Message ID" Margin="40,65,400,0" VerticalAlignment="Top" Height="25" FontSize="10" RenderTransformOrigin="0.481,1.166"/>
+        <TextBox x:Name="addIdBox" Height="23" Margin="40,95,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.772"/>
+        <Label x:Name="addContentLbl" Content="Add Message Content" Margin="40,123,39,0" VerticalAlignment="Top" Height="22" FontSize="10"/>
+        <TextBox x:Name="addContentBox" Height="252" Margin="40,150,39,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.502,1.131"/>
+        <Button x:Name="backManual" Content="Back" HorizontalAlignment="Left" Margin="56,594,0,0" VerticalAlignment="Top" Width="150" Height="45" FontWeight="Bold" Click="backManual_Click"  />
+        <TextBox x:Name="statusLbl" HorizontalAlignment="Left" Height="23" Margin="40,566,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="921" BorderThickness="0"/>
+        <Label x:Name="helpLbl" Content="Instructions on how to use the manual input: All inputs must have a valid message ID, either S, E or T followed by 9 digits.&#xD;&#xA;For Email: Message Content must be [Sen:(Email Address) Sub:(Subject) Con:(Message Content)].&#xD;&#xA;For SIR email: Message Content must be [Sen:(Email Address) Sub:(Subject) Con:(xx-xx-xx Nature of Incident // Content)].&#xD;&#xA;For SMS: Message Content must be [Sen:(International Phone Number) Con:(Message Content)].&#xD;&#xA;For Tweet: Message Content must be [Sen:(Twitter ID) Con:(Message Content)]" HorizontalAlignment="Left" Margin="40,407,0,0" VerticalAlignment="Top" Height="104" Width="921"/>
 
     </Grid>
 </Page>

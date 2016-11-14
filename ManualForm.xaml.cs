@@ -27,7 +27,7 @@ namespace NBMFS
         public ManualForm()
         {
             InitializeComponent();
-
+            addContentBox.Text = "Sen: Sub: Con:";
         }
 
         private void backManual_Click(object sender, RoutedEventArgs e)
@@ -38,6 +38,7 @@ namespace NBMFS
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
+            
           
             String eAccepted = @"[eE]+[0-9]{9}$";
             String sAccepted = @"[sS]+[0-9]{9}$";
@@ -47,91 +48,81 @@ namespace NBMFS
             //EMAIL MESSAGE ID CHECKER STARTS
             if ((addIdBox.Text != "") && ((Regex.IsMatch(addIdBox.Text, eAccepted))))
             {
+                String copy = addContentBox.Text;
                 String emailCheck = @"[a-zA-Z._]+[@]+[a-zA-Z]+[.]+[a-zA-Z.]{2,5}$";
+                String subCheck = @"[a-zA-Z0-9.*]{0,20}$";
+                String contentCheck = @"(.*?){0,1028}$";
+                String sirCheck = @"([S]+[I]+[R]+[ ]+(([0-2]+[0-9])|([3]+[0-1]))+[\/]+(([0]+[0-9])|([1]+[0-2]))+[\/]+(([0]+[0-9])|([1-2]+[0-9])))";
+                int length = (copy.IndexOf("Con:") - copy.IndexOf("Sub:"));
+                String mSender = copy.Substring(copy.IndexOf("Sen:") + 4, copy.IndexOf("Sub:") - 5);
+                String mSubject = copy.Substring(copy.IndexOf("Sub:") + 4, length - 4);
+                String mContent = addContentBox.Text.Substring(addContentBox.Text.IndexOf("Con:") + 4);
                 //EMAIL SENDER CHECKER STARTS
-                if ((addSenderBox.Text != "") && (Regex.IsMatch(addSenderBox.Text, emailCheck)))
+                if ((addContentBox.Text != "") && (Regex.IsMatch(mSender, emailCheck)))
                 {
-                    String subjectCheck = @"[a-zA-Z0-9.*]{0,20}$";
-                    String sirCheck = @"([S]+[I]+[R]+[ ]+(([0-2]+[0-9])|([3]+[0-1]))+[\/]+(([0]+[0-9])|([1]+[0-2]))+[\/]+(([0]+[0-9])|([1-2]+[0-9])))";
-                    //EMAIL SUBJECT CHECKER FOR SIR EMAIL IF STARTS
-                    if ((addSubjectBox.Text != "") && (Regex.IsMatch(addSubjectBox.Text, sirCheck)))
+                    //EMAIL SUBJECT CHECKER STARTS(SIR)
+                    if (Regex.IsMatch(mSubject, sirCheck))
                     {
-                        //EMAIL CONTENT FOR SIR CHECKEr STARTS     
-                        if (addContentBox.Text != "")
+                        //EMAIL CONTENT FOR URL CHECKER STARTS
+                        if (mContent.Contains("http://"))
                         {
-                            string code = addContentBox.Text.Substring(0, 8);
-                            string nOI = addContentBox.Text.Substring(9);
-                            SirList sirList = SirList.Instance();
-                            Sir sir = new Sir(addIdBox.Text, addSenderBox.Text, code, nOI, addSubjectBox.Text, addContentBox.Text);
-                            sirList.addSir(sir);
-                            statusLbl.Text = "SIR " + code + " Added";
-                            addContentBox.Text = "";
-                            addIdBox.Text = "";
-                            addSenderBox.Text = "";
-                            addSubjectBox.Text = "";
-                        }//EMAIL CONTENT FOR SIR CHECKER ENDS
-                        else
-                        {
-                            statusLbl.Text = "Content empty, please enter SIR code xx-xx-xx followed by a space then the nature of the incident";
-                        }
-
-                    }//EMAIL SUBJECT CHECKER FOR SIR EMAIL IF ENDS
-                    //EMAIL SUBJECT FOR NORMAL EMAIL CHECKER STARTS
-                    else if ((addSubjectBox.Text !="") && (Regex.IsMatch(addSubjectBox.Text, subjectCheck)))
-                    {
-                        String contentCheck = @"(.*?){0,1028}$";
-                        //EMAIL CONTENT FOR NORMAL EMAIL CHECKER STARTS
-                        if((addContentBox.Text!="") &&(Regex.IsMatch(addContentBox.Text, contentCheck)))
-                        {
-                            //EMAIL CONTENT FOR URL CHECKER STARTS
-                            if(addContentBox.Text.Contains("http://"))
-                            {
-                                string temp = " " + addContentBox.Text + " ";
-                                String secondHalf;
-                                String firstHalf;
-                                String replace = "<URL Quanantined>";
-                                string del = "http://";
-                                int i = temp.LastIndexOf(del);
-                                string copy = temp.Remove(0, i);
-                                String url = copy.Substring(0, copy.IndexOf(" "));
-                                secondHalf = copy.Remove(0, copy.IndexOf(" ")); 
-                                firstHalf = temp.Substring(0, i-1);
-                                addContentBox.Text = firstHalf + " " + replace + " " +secondHalf;
-                                urlQuarantineList uList = urlQuarantineList.Instance();
-                                Url u = new Url(addIdBox.Text, url);
-                                uList.addUrl(u);
-                            }//EMAIL CONTENT FOR URL CHECKER ENDS
-                                MsgList list = MsgList.Instance();
-                                Message email = new Message(addIdBox.Text, addSenderBox.Text, addSubjectBox.Text, addContentBox.Text);
-                                list.addMessage(email);
-                                statusLbl.Text = "Message Added!";
-                                addContentBox.Text = "";
-                                addIdBox.Text = "";
-                                addSenderBox.Text = "";
-                                addSubjectBox.Text = "";
-                        }//EMAIL CONTENT FOR NORMAL EMAIL CHECK ENDS
-                        else
-                        {//EMAIL CONTENT CHECK FOR INVALID ELSE STARTS
-                            statusLbl.Text = "invalid content.";
-                            addContentBox.Text = "";
-                        }//EMAIL CONTENT CHECKER FOR INVALID ELSE ENDS
-
-                    }//EMAIL SUBJECT FOR NORMAL EMAIL CHECKER IF ENDS
-                    else//SUBJECT CHECKER ELSE STARTS
-                    {
-                        statusLbl.Text = "Subject invalid, please ensure 20 characters or less, or enter valid SIR dd/mm/yy";
-                        addSubjectBox.Text = "";
+                            string temp = " " + mContent + " ";
+                            String secondHalf;
+                            String firstHalf;
+                            String replace = "<URL Quanantined>";
+                            string del = "http://";
+                            int i = temp.IndexOf(del);
+                            string tempCon = temp.Remove(0, i);
+                            String url = tempCon.Substring(0, tempCon.IndexOf(" "));
+                            secondHalf = tempCon.Remove(tempCon.IndexOf(" "));
+                            firstHalf = temp.Substring(0, i - 1);
+                            mContent = firstHalf + " " + replace + " " + secondHalf;
+                            urlQuarantineList uList = urlQuarantineList.Instance();
+                            Url u = new Url(addIdBox.Text, url);
+                            uList.addUrl(u);
+                        }//EMAIL CONTENT FOR URL CHECKER ENDS
+                        length = mContent.IndexOf("//") - 9;
+                        string code = mContent.Substring(0, 8);
+                        string nOI = mContent.Substring(9, length);
+                        String message = mContent.Substring(mContent.IndexOf("//") + 2);
+                        SirList sirList = SirList.Instance();
+                        Sir sir = new Sir(addIdBox.Text, mSender, code, nOI, mSubject, message);
+                        sirList.addSir(sir);
+                        statusLbl.Text = "SIR " + code + " Added";
                         addContentBox.Text = "";
-                    }//SUBJECT CHECKER ELSE ENDS
-                    //EMAIL SUBJECT CHECKER FOR SIR EMAIL ENDS
-                }//EMAIL SENDER CHECKER IF ENDS
-                else
-                {
-                    statusLbl.Text = "Sender Invalid, please enter valid email";
-                    addSenderBox.Text = "";
-                    addSubjectBox.Text = "";
-                    addContentBox.Text = "";
-                }//EMAIL SENDER CHECKER ELSE ENDS
+                        addIdBox.Text = "";
+                    }//EMAIL SUBJECT CHECKER ENDS(SIR)
+                    //EMAIL SUBJECT CHECKER STARTS(STANDARD EMAIL)
+                    else if ((Regex.IsMatch(mSubject, subCheck)) && (Regex.IsMatch(mContent, contentCheck)))
+                    {
+                        //EMAIL CONTENT FOR URL CHECKER STARTS
+                        if (mContent.Contains("http://"))
+                        {
+                            string temp = " " + mContent + " ";
+                            String secondHalf;
+                            String firstHalf;
+                            String replace = "<URL Quanantined>";
+                            string del = "http://";
+                            int i = temp.LastIndexOf(del);
+                            string tempCon = temp.Remove(0, i);
+                            String url = tempCon.Substring(0, tempCon.IndexOf(" "));
+                            secondHalf = tempCon.Remove(0, tempCon.IndexOf(" "));
+                            firstHalf = temp.Substring(0, i - 1);
+                            mContent = firstHalf + " " + replace + " " + secondHalf;
+                            urlQuarantineList uList = urlQuarantineList.Instance();
+                            Url u = new Url(addIdBox.Text, url);
+                            uList.addUrl(u);
+                        }//EMAIL CONTENT FOR URL CHECKER ENDS
+                        MsgList list = MsgList.Instance();
+                        Message email = new Message(addIdBox.Text, mSender, mSubject, mContent);
+                        list.addMessage(email);
+                        statusLbl.Text = "Message Added!";
+                        addContentBox.Text = "";
+                        addIdBox.Text = "";
+                    }//EMAIL SUBJECT CHECKER ENDS(STANDARD EMAIL)
+                    else { statusLbl.Text = "Please input valid SIR in the form of Sub:SIR dd/mm/yy Con:xx-xx-xx (Code) //Message content, Or enter a standard email with Sen:(sender address) Sub:(subject line) Con:(message content)"; }
+                }//EMAIL SENDER CHECKER STARTS
+                else { statusLbl.Text = "Sender email address incorrect, please ensure message is of Sen:(Email address) Sub:(subject line/SIR) Con:(message body) Format"; }
             }//EMAIL ID CHECKER IF ENDS
             //=====================EMAIL MESSAGE VADLIDATION ENDS==================
             //=====================================================================
@@ -143,14 +134,17 @@ namespace NBMFS
             else if ((addIdBox.Text != "") && ((Regex.IsMatch(addIdBox.Text, sAccepted))))
             {
 
-                statusLbl.Text = "SMS detected, subject not required.";
-                string senderNo = @"^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$";
+                String copy = addContentBox.Text;
+                String senderNo = @"^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$";
+                int length = (copy.IndexOf("Con:") - copy.IndexOf("Sub:"));
+                String mSender = copy.Substring(copy.IndexOf("Sen:") + 4, copy.IndexOf("Con:") - 5);
+                String mContent = addContentBox.Text.Substring(addContentBox.Text.IndexOf("Con:") + 4);
                 //SMS SENDER CHECKER START
-                if ((addSenderBox.Text != "")&&(Regex.IsMatch(addSenderBox.Text, senderNo)))
+                if ((addContentBox.Text != "")&&(Regex.IsMatch(mSender, senderNo)))
                 {
                     string txtContent = @"(.*?){0,140}";
                     //SMS CONTENT CHECKER START
-                    if((addContentBox.Text != "")&&(Regex.IsMatch(addContentBox.Text, txtContent)))
+                    if(Regex.IsMatch(mContent, txtContent))
                     {
                         String file = @"textwords.csv";
                         //TRY BLOCK START
@@ -178,9 +172,9 @@ namespace NBMFS
                             {
                                 replace = extends[i];
                                 //IF CONDITION FOR ABREVIATION EXPANSION STARTS
-                                if (addContentBox.Text.Contains(abvs[i]))
+                                if (mContent.Contains(abvs[i]))
                                 {
-                                    string temp = " " + addContentBox.Text + " ";
+                                    string temp = " " + mContent + " ";
                                     String secondHalf;
                                     String firstHalf;
                                     string del = abvs[i];
@@ -188,20 +182,18 @@ namespace NBMFS
                                     firstHalf = temp.Substring(0, (j+del.Length));
                                     secondHalf = temp.Substring(j+del.Length+1);
                                     temp = firstHalf + "< " + replace + " >" + secondHalf;
-                                    addContentBox.Text = temp;
+                                    mContent = temp;
                                 }// IF CONDITION FOR ABREVIATION EXPANSION ENDS
                             }//FOR LOOP TO CHECK MESSAGE CONTENT AGAINST ABREVIATIONS END
                             //IF CONDITION TO ADD MESSAGE IF LENGTH UNDER 140 STARTS
                             if (addContentBox.Text.Length<140)
                             {
                                 MsgList list = MsgList.Instance();
-                                Message sms = new Message(addIdBox.Text, addSenderBox.Text, addSubjectBox.Text, addContentBox.Text);
+                                Message sms = new Message(addIdBox.Text, mSender, "", mContent);
                                 list.addMessage(sms);
                                 statusLbl.Text = "Message Added!";
                                 addContentBox.Text = "";
                                 addIdBox.Text = "";
-                                addSenderBox.Text = "";
-                                addSubjectBox.Text = "";
                             }//IF CONDITION TO ADD MESSAGE IF LENGTH UNDER 140 ENDS
                         }//TRY BLOCK END
                         //CATCH BLOCK START
@@ -219,8 +211,7 @@ namespace NBMFS
                 else
                 {
                     statusLbl.Text = "Sender Invalid, please enter valid number";
-                    addSenderBox.Text = "";
-                    addSubjectBox.Text = "";
+
                     addContentBox.Text = "";
                 }//SMS SENDER CHECKER ELSE ENDS
             }//SMS ID CHECKER ENDS
@@ -232,13 +223,18 @@ namespace NBMFS
             //TWEET ID CHECKER STARTS
             else if ((addIdBox.Text != "") && (Regex.IsMatch(addIdBox.Text, tAccepted)))
             {
-                string senderID = @"(@[[:ascii:]]{0,15})";
+                String copy = addContentBox.Text;
+                String senderID = @"(@[[:ascii:]]{0,15})";
+                int length = (copy.IndexOf("Con:") - copy.IndexOf("Sub:"));
+                String mSender = copy.Substring(copy.IndexOf("Sen:") + 4, copy.IndexOf("Con:") - 5);
+                String mContent = addContentBox.Text.Substring(addContentBox.Text.IndexOf("Con:") + 4);
+                
                 //TWEET SENDER CHECKER STARTS
-                if((addSenderBox.Text!="")&&(Regex.IsMatch(addSenderBox.Text, senderID)))
+                if(Regex.IsMatch(mSender, senderID))
                 {
                     string txtContent = @"(.*?){0,140}";
                     //TWEET CONTENT CHECKER STARTS
-                    if((addContentBox.Text!="")&&(Regex.IsMatch(addContentBox.Text,txtContent)))
+                    if(Regex.IsMatch(mContent,txtContent))
                     {
                         String file = @"textwords.csv";
                         //TRY BLOCK START
@@ -266,9 +262,9 @@ namespace NBMFS
                             {   
                                 replace = extends[i];
                                 //IF CONDITION FOR ABREVIATION EXPANSION STARTS
-                                if (addContentBox.Text.Contains(abvs[i]))
+                                if (mContent.Contains(abvs[i]))
                                 {
-                                    string temp = addContentBox.Text = " " + addContentBox.Text + " ";
+                                    string temp = " " + mContent + " ";
                                     String secondHalf;
                                     String firstHalf;
                                     string del = abvs[i];
@@ -276,7 +272,7 @@ namespace NBMFS
                                     firstHalf = temp.Substring(0, (j + del.Length-1));
                                     secondHalf = temp.Substring(j + del.Length + 1);
                                     temp = firstHalf + " <" + replace + " >" + secondHalf;
-                                    addContentBox.Text = temp;
+                                    mContent = temp;
                                 }// IF CONDITION FOR ABREVIATION EXPANSION ENDS
                             }//FOR LOOP TO CHECK MESSAGE CONTENT AGAINST ABREVIATIONS END    
                         }//TRY BLOCK END
@@ -290,7 +286,7 @@ namespace NBMFS
                         if(Regex.IsMatch(addContentBox.Text, hashCheck))
                         {
                             HashTags t = HashTags.Instance();
-                            string copy = addContentBox.Text;
+                            copy = mContent;
                             //WHILE LOOP TO GATHER ALL HASHTAGS STARTS
                             while(Regex.IsMatch(copy, hashCheck))
                             {
@@ -320,7 +316,7 @@ namespace NBMFS
                         if (Regex.IsMatch(addContentBox.Text, mentionCheck))
                         {
                             Mentions m = Mentions.Instance();
-                            string copy = addContentBox.Text;
+                            copy = mContent;
                             //WHILE LOOP TO GATHER ALL HASHTAGS STARTS
                             while (Regex.IsMatch(copy, mentionCheck))
                             {
@@ -350,13 +346,11 @@ namespace NBMFS
                         if (addContentBox.Text.Length < 140)
                         {
                             MsgList list = MsgList.Instance();
-                            Message sms = new Message(addIdBox.Text, addSenderBox.Text, addSubjectBox.Text, addContentBox.Text);
+                            Message sms = new Message(addIdBox.Text, mSender, "", mContent);
                             list.addMessage(sms);
                             statusLbl.Text = "Message Added!";
                             addContentBox.Text = "";
                             addIdBox.Text = "";
-                            addSenderBox.Text = "";
-                            addSubjectBox.Text = "";
                             HashTags t = new HashTags();                      
                         }//IF CONDITION TO ADD MESSAGE IF LENGTH UNDER 140 ENDS
 
@@ -370,7 +364,6 @@ namespace NBMFS
                 else
                 {
                     statusLbl.Text = "Please enter valid twitter ID, @ followed by 15 characters";
-                    addSenderBox.Text = "";
                 }
             }//TWEET ID CHECKER ENDS
             //=====================TWEET MESSAGE VADLIDATION ENDS==================
@@ -380,8 +373,6 @@ namespace NBMFS
             {
                 statusLbl.Text = "Message Id invalid. Please use S,E or T followed by 9 numbers.";
                 addIdBox.Text = "";
-                addSenderBox.Text = "";
-                addSubjectBox.Text = "";
                 addContentBox.Text = "";
             }//ID CHECKER ELSE ENDS
         }

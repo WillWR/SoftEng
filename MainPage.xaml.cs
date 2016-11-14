@@ -249,5 +249,11 @@ namespace NBMFS
             DisplayTrends dT = new DisplayTrends();
             this.NavigationService.Navigate(dT);
         }
+
+        private void sirBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SirView sR = new SirView();
+            this.NavigationService.Navigate(sR);
+        }
     }
 }

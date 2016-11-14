@@ -26,6 +26,7 @@ namespace NBMFS
             InitializeComponent();
             MsgList list = MsgList.Instance();
             showId.Text = list.showID(0);
+            showSen.Text = list.showSender(0);
             showSub.Text = list.showSub(0);
             showCon.Text = list.showCon(0);
         }
@@ -43,6 +44,7 @@ namespace NBMFS
             if(current!=max)
             {
                 showId.Text = list.showID(current + 1);
+                showSen.Text = list.showSender(current + 1);
                 showSub.Text = list.showSub(current + 1);
                 showCon.Text = list.showCon(current + 1);
                 current++;
@@ -51,6 +53,7 @@ namespace NBMFS
             {
                 current = 0;
                 showId.Text = list.showID(current);
+                showSen.Text = list.showSender(current);
                 showSub.Text = list.showSub(current);
                 showCon.Text = list.showCon(current);
             }
@@ -65,12 +68,14 @@ namespace NBMFS
             {
                 current = max;
                 showId.Text = list.showID(current);
+                showSen.Text = list.showSender(current);
                 showSub.Text = list.showSub(current);
                 showCon.Text = list.showCon(current);
             }
             else
             {
                 showId.Text = list.showID(current - 1);
+                showSen.Text = list.showSender(current - 1);
                 showSub.Text = list.showSub(current - 1);
                 showCon.Text = list.showCon(current - 1);
                 current--;

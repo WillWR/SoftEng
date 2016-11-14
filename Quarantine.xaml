@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NBMFS"
       mc:Ignorable="d"
-      Title="Quarantine" Background="White" Height="500" Width="700">
+      Title="Quarantine" Background="White" Height="750" Width="1000">
 
     <Grid Margin="0,0,0,65">
-        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" Margin="286,355,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="backBtn_Click"/>
-        <Label x:Name="qUrlLbl" Content="Quarantined URLs" Margin="198,10,236,0" Width="266" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <ListView x:Name="quarantineURL" HorizontalAlignment="Left" Height="262" Margin="173,57,0,0" VerticalAlignment="Top" Width="298">
+        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" Margin="408,630,0,0" VerticalAlignment="Top" Width="150" Height="45" FontWeight="Bold" Click="backBtn_Click"/>
+        <TextBlock x:Name="urlLbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Quarantined URLS" Height="24" Width="980" FontWeight="Bold" TextAlignment="Center" Margin="10,29,0,632"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napier Bank Message Filtration System" VerticalAlignment="Top" Height="24" Width="1000" FontWeight="Bold" TextAlignment="Center"/>
+        <ListView x:Name="quarantineURL" HorizontalAlignment="Left" Height="516" Margin="296,62,0,0" VerticalAlignment="Top" Width="374">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

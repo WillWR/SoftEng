@@ -47,6 +47,11 @@ namespace NBMFS
         {
             return sirList[i].subject;
         }
+
+        public string showSen(int i)
+        {
+            return sirList[i].sender;
+        }
         //Method for showing serious incident report SIR Code from list index(i)
         public string showSirCode(int i)
         {
