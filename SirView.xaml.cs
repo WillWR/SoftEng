@@ -23,6 +23,7 @@ namespace NBMFS
         int current = 0;
         public SirView()
         {
+            //SHOWS THE FIRST SIR MESSAGE IN THE LIST.
             InitializeComponent();
             SirList list = SirList.Instance();
             showId.Text = list.showID(0);
@@ -32,13 +33,13 @@ namespace NBMFS
             showNoi.Text = list.showNoi(0);
             showCon.Text = list.showCon(0);
         }
-
+        //METHOD FOR BACK BUTTON CLICK.
         private void bckBtn_Click(object sender, RoutedEventArgs e)
         {
             MainPage home = new MainPage();
             this.NavigationService.Navigate(home);
         }
-
+        //METHOD FOR PREVOIUS BUTTON CLICK
         private void prev_Click(object sender, RoutedEventArgs e)
         {
             SirList list = SirList.Instance();
@@ -64,7 +65,7 @@ namespace NBMFS
                 current--;
             }
         }
-
+        //METHOD FOR NEXT BUTTON CLICK.
         private void next_Click(object sender, RoutedEventArgs e)
         {
             SirList list = SirList.Instance();

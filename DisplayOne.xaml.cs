@@ -20,6 +20,7 @@ namespace NBMFS
     /// </summary>
     public partial class DisplayOne : Page
     {
+        //SHOWS INITIAL FIRST MESSAGE.
         int current = 0;
         public DisplayOne()
         {
@@ -30,13 +31,13 @@ namespace NBMFS
             showSub.Text = list.showSub(0);
             showCon.Text = list.showCon(0);
         }
-
+        //METHOD FOR BACK BUTTON CLICK
         private void bckBtn_Click(object sender, RoutedEventArgs e)
         {
             MainPage home = new MainPage();
             this.NavigationService.Navigate(home);
         }
-
+        //METHOD FOR NEXT BUTTON CLICK, RETRIEVES NEXT MESSAGE IN LIST.
         private void next_Click(object sender, RoutedEventArgs e)
         {
             MsgList list = MsgList.Instance();
@@ -59,7 +60,7 @@ namespace NBMFS
             }
             
         }
-
+        //METHOD FOR PREVIOUS BUTTON CLICK, RETREIVES PREVIOUS MESSAGE IN LIST.
         private void prev_Click(object sender, RoutedEventArgs e)
         {
             MsgList list = MsgList.Instance();

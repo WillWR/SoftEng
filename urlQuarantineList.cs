@@ -42,20 +42,23 @@ namespace NBMFS
         {
             return urlList[i].id;
         }
+        //method for showing url from list index(i)
         public string showUrl(int i)
         {
             return urlList[i].QuarantinedUrl;
         }
+        //method for returning size of the url list.
         public int getSize()
         {
             return urlList.Count;
         }
+        //method for returning the url object at index (i)
         public Url getUrl(int i)
         {
             return urlList[i];
         }
     }
-
+    //URL OBJECT
     class Url
     {
         public string id { get; set; }
@@ -65,7 +68,6 @@ namespace NBMFS
         {
             this.id = i;
             this.QuarantinedUrl = u;
-
         }
     }
 }

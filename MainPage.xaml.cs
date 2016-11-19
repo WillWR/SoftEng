@@ -30,13 +30,13 @@ namespace NBMFS
             InitializeComponent();
 
         }
-
+        //METHOD FOR MANUAL FORM BUTTON CLICK
         private void manualBtn_Click(object sender, RoutedEventArgs e)
         {
             ManualForm mF = new ManualForm();
             this.NavigationService.Navigate(mF);
         }
-
+        //METHOD FOR VIEW MESSAGE ONE BY ONE BUTTON CLICK
         private void viewSingleBtn_Click(object sender, RoutedEventArgs e)
         {
             MsgList list = MsgList.Instance();
@@ -51,7 +51,7 @@ namespace NBMFS
                 statusBox.Text = "No messages to view, please load from json file or input manually";
             }        
         }
-
+        //METHOD FOR VIEW URLS BUTTON CLICK
         private void urlsBtn_Click(object sender, RoutedEventArgs e)
         {
             urlQuarantineList list = urlQuarantineList.Instance();
@@ -63,13 +63,12 @@ namespace NBMFS
             else
             {
                 statusBox.Text = "No Urls to view";
-            }
-
-            
+            }          
         }
-
+        //METHOD FOR ADD TO JSON FILE BUTTON CLICK
         private void addtoJsonBtn_Click(object sender, RoutedEventArgs e)
         {
+            //WRITE MESSAGES TO JSON
             MsgList list = MsgList.Instance();
             int length = list.getSize();
             StreamWriter writeMessages = new StreamWriter(@"jsonMessages.txt");
@@ -79,7 +78,7 @@ namespace NBMFS
                 writeMessages.WriteLine(json);     
             }
             writeMessages.Close();
-
+            //WRITE URLS TO JSON
             StreamWriter writeUrls = new StreamWriter(@"jsonUrls.txt");
             urlQuarantineList u = urlQuarantineList.Instance();
             for(int i=0;i<u.getSize();i++)
@@ -88,7 +87,7 @@ namespace NBMFS
                 writeUrls.WriteLine(json);
             }
             writeUrls.Close();
-
+            //WRITE HASH TAGS TO JSON
             StreamWriter writeTags = new StreamWriter(@"jsonTags.txt");
             HashTags hashTag = HashTags.Instance();
             for (int i = 0; i < hashTag.getSize(); i++)
@@ -97,7 +96,7 @@ namespace NBMFS
                 writeTags.WriteLine(json);
             }
             writeTags.Close();
-
+            //WRITE MENTIONS TO JSON
             StreamWriter writeMen = new StreamWriter(@"jsonMen.txt");
             Mentions men = Mentions.Instance();
             for(int i=0;i<men.getSize();i++)
@@ -106,7 +105,7 @@ namespace NBMFS
                 writeMen.WriteLine(json);
             }
             writeMen.Close();
-
+            //WRITE SIR MESSAGES TO JSON
             StreamWriter writeSir = new StreamWriter(@"jsonSir.txt");
             SirList sir = SirList.Instance();
             for(int i = 0; i<sir.getSize();i++)
@@ -118,9 +117,10 @@ namespace NBMFS
 
             statusBox.Text = "Data writen to Json.";
         }
-
+        //METHOD FOR LOADING FROM JSON FILE BUTTON CLICK
         private void autoBtn_Click(object sender, RoutedEventArgs e)
         {
+            //LOAD MESSAGES FROM JSON
             MsgList list = MsgList.Instance();
             try
             {
@@ -144,7 +144,7 @@ namespace NBMFS
             {
                 statusBox.Text = "Message file not found, Please input messages manually and ensure you write to file before closing";
             }
-
+            //LOAD URLS FROM JSON
             urlQuarantineList u = urlQuarantineList.Instance();
             try
             {
@@ -168,7 +168,7 @@ namespace NBMFS
             {
                 statusBox.Text = "Url file not found, please input messages manually and ensure you write to file before closing";
             }
-
+            //LOAD HASH TAGS FROM JSON
             HashTags tag = HashTags.Instance();
             try
             {
@@ -191,7 +191,7 @@ namespace NBMFS
             {
                 statusBox.Text = "Tags file not found, please input messages manually and ensure you write to file before closing";
             }
-
+            //LOAD MENTIONS FROM JSON
             Mentions men = Mentions.Instance();
             try
             {
@@ -214,7 +214,7 @@ namespace NBMFS
             {
                 statusBox.Text = "Mentions file not found, please input messages manually and ensure you write to file before closing";
             }
-
+            //LOAD SIR MESSAGES FROM JSON
             SirList sir = SirList.Instance();
             try
             {
@@ -239,7 +239,7 @@ namespace NBMFS
             }
             statusBox.Text = "Data loaded from Json.";
         }
-
+        //METHOD FOR VIEW ALL MESSAGES BUTTON CLICK
         private void viewAllBtn_Click(object sender, RoutedEventArgs e)
         {
             MsgList list = MsgList.Instance();
@@ -255,7 +255,7 @@ namespace NBMFS
                 statusBox.Text = "No messages to view, please load from json file or input manually"; 
             }   
         }
-
+        //METHOD FOR VIEW TRENDS BUTTON CLICK
         private void viewTrendsBtn1_Click(object sender, RoutedEventArgs e)
         {
             HashTags list = HashTags.Instance();
@@ -271,7 +271,7 @@ namespace NBMFS
             }
             
         }
-
+        //METHOD FOR VIEW SIR BUTTON CLICK
         private void sirBtn_Click(object sender, RoutedEventArgs e)
         {
             SirList list = SirList.Instance();

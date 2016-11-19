@@ -71,7 +71,7 @@ namespace NBMFS
             return messageList[i];
         }
     }
-
+    //MESSAGE OBJECT.
     class Message
     {
         public string id { get; set; }

@@ -32,32 +32,33 @@ namespace NBMFS
             }
             return instance;
         }
-
+        //METHOD TO ADD TAG TO LIST.
         public void addTag(Tags t)
         {
             tagList.Add(t);
         }
-
+        //METHOD TO SHOW ID ASSOCIATED WITH TAG.
         public string showID(int i)
         {
             return tagList[i].id;
         }
-
+        //METHOD TO SHOW HASHTAG.
         public string showTag(int i)
         {
             return tagList[i].tag;
         }
-
+        //METHOD TO RETURN SIZE OF HASHTAGS LIST.
         public int getSize()
         {
             return tagList.Count;
         }
-
+        //METHOD TO RETURN A TAG OBJECT
         public Tags getTag(int i)
         {
             return tagList[i];
         }
     }
+    //TAG OBJECT.
     class Tags
     {
         public string id { get; set; }

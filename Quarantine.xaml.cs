@@ -25,7 +25,7 @@ namespace NBMFS
             InitializeComponent();
 
             HashTags t = HashTags.Instance();
-
+            //SHOWS URLS IN LIST VIEW BOX.
             urlQuarantineList u = urlQuarantineList.Instance();
             int size = u.getSize();
             for (int i = 0; i < size; i++)
@@ -33,7 +33,7 @@ namespace NBMFS
                 quarantineURL.Items.Add(u.showUrl(i));
             }
         }
-
+        //METHOD FOR BACK BUTTON CLICK.
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             MainPage home = new MainPage();

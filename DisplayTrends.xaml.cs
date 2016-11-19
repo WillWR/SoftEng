@@ -23,13 +23,13 @@ namespace NBMFS
         public DisplayTrends()
         {
             InitializeComponent();
-
+            //ADDS ALL HASHTAGS TO LIST VIEW BOX.
             HashTags tag = HashTags.Instance();
             for(int i=0;i<tag.getSize();i++)
             {
                 trendsView.Items.Add(tag.showTag(i));
             }
-
+            //ADDS ALL MENTIONS TO LIST VIEW BOX.
             Mentions men = Mentions.Instance();
             for(int i=0;i<men.getSize();i++)
             {
@@ -37,7 +37,7 @@ namespace NBMFS
             }
 
         }
-
+        //METHOD FOR BACK BUTTON CLICK.
         private void back_Click(object sender, RoutedEventArgs e)
         {
             MainPage mP = new MainPage();

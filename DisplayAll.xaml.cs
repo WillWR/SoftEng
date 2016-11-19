@@ -23,6 +23,7 @@ namespace NBMFS
         public DisplayAll()
         {
             InitializeComponent();
+            //METHOD FOR DISPLAYING MESSAGES.
             MsgList list = MsgList.Instance();
             int size = list.getSize();
             for(int i=0; i<size; i++)
@@ -32,7 +33,7 @@ namespace NBMFS
             }
 
         }
-
+        //METHOD FOR BACK BUTTON
         private void back_Click(object sender, RoutedEventArgs e)
         {
             MainPage mP = new MainPage();

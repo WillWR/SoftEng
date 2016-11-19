@@ -67,18 +67,18 @@ namespace NBMFS
         {
             return sirList[i].content;
         }
-
+        //METHOD FOR RETURNING THE SIZE OF THE LIST.
         public int getSize()
         {
             return sirList.Count;
         }
-
+        //METHOD FOR RETURNING SIR OBJECT.
         public Sir getSir(int i)
         {
             return sirList[i];
         }
     }
-
+    //SIR OBJECT.
     class Sir
     {
         public string id { get; set; }
