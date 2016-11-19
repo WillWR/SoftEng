@@ -54,8 +54,18 @@ namespace NBMFS
 
         private void urlsBtn_Click(object sender, RoutedEventArgs e)
         {
-            Quarantine q = new Quarantine();
-            this.NavigationService.Navigate(q);
+            urlQuarantineList list = urlQuarantineList.Instance();
+            if(list.getSize()!=0)
+            {
+                Quarantine q = new Quarantine();
+                this.NavigationService.Navigate(q);
+            }
+            else
+            {
+                statusBox.Text = "No Urls to view";
+            }
+
+            
         }
 
         private void addtoJsonBtn_Click(object sender, RoutedEventArgs e)
@@ -105,6 +115,8 @@ namespace NBMFS
                 writeSir.WriteLine(json);
             }
             writeSir.Close();
+
+            statusBox.Text = "Data writen to Json.";
         }
 
         private void autoBtn_Click(object sender, RoutedEventArgs e)
@@ -225,7 +237,7 @@ namespace NBMFS
             {
                 statusBox.Text = "SirList file not found, please input messages manually and ensure you write to file before closing";
             }
-
+            statusBox.Text = "Data loaded from Json.";
         }
 
         private void viewAllBtn_Click(object sender, RoutedEventArgs e)
@@ -246,14 +258,33 @@ namespace NBMFS
 
         private void viewTrendsBtn1_Click(object sender, RoutedEventArgs e)
         {
-            DisplayTrends dT = new DisplayTrends();
-            this.NavigationService.Navigate(dT);
+            HashTags list = HashTags.Instance();
+            Mentions list2 = Mentions.Instance();
+            if(list.getSize()!=0 || list2.getSize()!=0)
+            {
+                DisplayTrends dT = new DisplayTrends();
+                this.NavigationService.Navigate(dT);
+            }
+            else
+            {
+                statusBox.Text = "No hash tags or mentions to view";
+            }
+            
         }
 
         private void sirBtn_Click(object sender, RoutedEventArgs e)
         {
-            SirView sR = new SirView();
-            this.NavigationService.Navigate(sR);
+            SirList list = SirList.Instance();
+            if(list.getSize()!=0)
+            {
+                SirView sR = new SirView();
+                this.NavigationService.Navigate(sR);
+            }
+            else
+            {
+                statusBox.Text = "No messages to view, please load from json file or input SIR manually.";
+            }
+            
         }
     }
 }

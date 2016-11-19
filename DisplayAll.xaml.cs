@@ -27,7 +27,7 @@ namespace NBMFS
             int size = list.getSize();
             for(int i=0; i<size; i++)
             {
-                string message = list.showID(i) + " : " + list.showSender(i) + " : " + list.showSub(i) + " : " + list.showCon(i);
+                string message =  "Message ID:" + list.showID(i) + " Sender: " + list.showSender(i) + " Subject: " + list.showSub(i) + " Content: " + list.showCon(i);
                 messageView.Items.Add(message);
             }
 

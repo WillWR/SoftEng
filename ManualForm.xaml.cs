@@ -50,7 +50,7 @@ namespace NBMFS
             {
                 String copy = addContentBox.Text;
                 String emailCheck = @"[a-zA-Z._]+[@]+[a-zA-Z]+[.]+[a-zA-Z.]{2,5}$";
-                String subCheck = @"[a-zA-Z0-9.*]{0,20}$";
+                String subCheck = @"([[:ascii:]]){0,20}$";
                 String contentCheck = @"(.*?){0,1028}$";
                 String sirCheck = @"([S]+[I]+[R]+[ ]+(([0-2]+[0-9])|([3]+[0-1]))+[\/]+(([0]+[0-9])|([1]+[0-2]))+[\/]+(([0]+[0-9])|([1-2]+[0-9])))";
                 int length = (copy.IndexOf("Con:") - copy.IndexOf("Sub:"));
@@ -113,12 +113,16 @@ namespace NBMFS
                             Url u = new Url(addIdBox.Text, url);
                             uList.addUrl(u);
                         }//EMAIL CONTENT FOR URL CHECKER ENDS
-                        MsgList list = MsgList.Instance();
-                        Message email = new Message(addIdBox.Text, mSender, mSubject, mContent);
-                        list.addMessage(email);
-                        statusLbl.Text = "Message Added!";
-                        addContentBox.Text = "";
-                        addIdBox.Text = "";
+                        if (mSubject.Length <= 20)
+                        {
+                            MsgList list = MsgList.Instance();
+                            Message email = new Message(addIdBox.Text, mSender, mSubject, mContent);
+                            list.addMessage(email);
+                            statusLbl.Text = "Message Added!";
+                            addContentBox.Text = "";
+                            addIdBox.Text = "";
+                        }
+                        else statusLbl.Text = "Subject too long, please ensure Subject is 20 characters or less";
                     }//EMAIL SUBJECT CHECKER ENDS(STANDARD EMAIL)
                     else { statusLbl.Text = "Please input valid SIR in the form of Sub:SIR dd/mm/yy Con:xx-xx-xx (Code) //Message content, Or enter a standard email with Sen:(sender address) Sub:(subject line) Con:(message content)"; }
                 }//EMAIL SENDER CHECKER STARTS
@@ -133,7 +137,6 @@ namespace NBMFS
             //SMS ID CHECKER STARTS
             else if ((addIdBox.Text != "") && ((Regex.IsMatch(addIdBox.Text, sAccepted))))
             {
-
                 String copy = addContentBox.Text;
                 String senderNo = @"^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$";
                 int length = (copy.IndexOf("Con:") - copy.IndexOf("Sub:"));
