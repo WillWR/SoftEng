@@ -1,2 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NBMFS.App">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.DisplayAll" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DisplayAll.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.DisplayOne" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIABAAAgAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DisplayOne.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.DisplayTrends" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DisplayTrends.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.HashTags">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAICEAAIAAAAAQAAABAAAAAABAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>HashTags.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DisplayTrends" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NBMFS.Tags">
+    <Position X="6.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>HashTags.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.MainPage" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQEAAAAAAQAAEAAQAAEQBAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="App" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.494" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.ManualForm" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAQAIAIIAA=</HashCode>
+      <FileName>ManualForm.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="urlQuarantineList" />
+      <Property Name="HashTags" />
+      <Property Name="Mentions" />
+      <Property Name="SirList" />
+      <Property Name="MsgList" />
+      <Property Name="MainPage" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.Mentions">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAIQAQAAAAAAAAAABAAAAAQAAAAAAIACA=</HashCode>
+      <FileName>Mentions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.TwitterIds">
+    <Position X="8.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgA=</HashCode>
+      <FileName>Mentions.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mentions" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NBMFS.MsgList">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAIAAAAAQAAgAAAAAQABAAAAAQAAAAAAoAIA=</HashCode>
+      <FileName>MsgList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.Message">
+    <Position X="16.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAIAgA=</HashCode>
+      <FileName>MsgList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MsgList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NBMFS.Quarantine" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quarantine.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.SirList">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAACIAAAoACAAAQAAgAAAAAAABAAAAAQAIAAAAIAAA=</HashCode>
+      <FileName>SirList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.Sir">
+    <Position X="14.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCIAIAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAAgA=</HashCode>
+      <FileName>SirList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SirList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NBMFS.SirView" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIABAAAgAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>SirView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NBMFS.urlQuarantineList">
+    <Position X="5.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAQAAAAACAAAgBAAAAAQAAAAAAIAUA=</HashCode>
+      <FileName>urlQuarantineList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NBMFS.Url">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgA=</HashCode>
+      <FileName>urlQuarantineList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="urlQuarantineList" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

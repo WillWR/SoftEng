@@ -20,6 +20,19 @@ namespace NBMFS
                 tagList = new List<Tags>();
             }
         }
+
+        public DisplayTrends DisplayTrends
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         //Checks to see if any list instance is currently active. if active instance is present, returns instance.
         public static HashTags Instance()
         {
@@ -62,7 +75,7 @@ namespace NBMFS
     class Tags
     {
         public string id { get; set; }
-        public string tag { get; set; }    
+        public string tag { get; set; }
 
         public Tags(string id, string t)
         {

@@ -20,6 +20,7 @@ namespace NBMFS
                 tid = new List<TwitterIds>();
             }
         }
+
         //Checks to see if any list instance is currently active. If active instance is present, returns instance.
         public static Mentions Instance()
         {
@@ -57,7 +58,19 @@ namespace NBMFS
     class TwitterIds
     {
         public string id { get; set; }
-        
+
+        internal Mentions Mentions
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public TwitterIds(string i)
         {
             this.id = i;

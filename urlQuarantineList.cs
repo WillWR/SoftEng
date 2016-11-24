@@ -20,6 +20,7 @@ namespace NBMFS
                 urlList = new List<Url>();
             }
         }
+
         //Checks to see if any list instance is currently active. If active instance is present, returns instance.
         public static urlQuarantineList Instance()
         {
@@ -63,6 +64,18 @@ namespace NBMFS
     {
         public string id { get; set; }
         public string QuarantinedUrl { get; set; }
+
+        internal urlQuarantineList urlQuarantineList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
 
         public Url(string i, string u)
         {

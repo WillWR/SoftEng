@@ -20,6 +20,7 @@ namespace NBMFS
                 sirList = new List<Sir>();
             }
         }
+
         //Checks to see if any list instance is currently active. If active instance is present, returns instance.
         public static SirList Instance()
         {
@@ -88,7 +89,17 @@ namespace NBMFS
         public string subject { get; set; }
         public string content { get; set; }
 
+        internal SirList SirList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
 
+            set
+            {
+            }
+        }
 
         public Sir(string i, string sen, string sirCode, string nOI, string sub, string con)
         {

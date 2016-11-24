@@ -27,5 +27,17 @@ namespace NBMFS
             MainPage home = new MainPage();
             frame.NavigationService.Navigate(home);
         }
+
+        public App App
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }

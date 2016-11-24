@@ -30,6 +30,78 @@ namespace NBMFS
             addContentBox.Text = "Sen: Sub: Con:";
         }
 
+        internal urlQuarantineList urlQuarantineList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal HashTags HashTags
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Mentions Mentions
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal SirList SirList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal MsgList MsgList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public MainPage MainPage
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         private void backManual_Click(object sender, RoutedEventArgs e)
         {
             MainPage home = new MainPage();
@@ -49,7 +121,7 @@ namespace NBMFS
             if ((addIdBox.Text != "") && ((Regex.IsMatch(addIdBox.Text, eAccepted))))
             {
                 String copy = addContentBox.Text;
-                String emailCheck = @"[a-zA-Z._]+[@]+[a-zA-Z]+[.]+[a-zA-Z.]{2,5}$";
+                String emailCheck = @"[a-zA-Z0-9._]+[@]+[a-zA-Z]+[.]+[a-zA-Z.]{2,5}$";
                 String subCheck = @"([[:ascii:]]){0,20}$";
                 String contentCheck = @"(.*?){0,1028}$";
                 String sirCheck = @"([S]+[I]+[R]+[ ]+(([0-2]+[0-9])|([3]+[0-1]))+[\/]+(([0]+[0-9])|([1]+[0-2]))+[\/]+(([0]+[0-9])|([1-2]+[0-9])))";

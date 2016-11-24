@@ -30,6 +30,19 @@ namespace NBMFS
             InitializeComponent();
 
         }
+
+        public MainWindow MainWindow
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         //METHOD FOR MANUAL FORM BUTTON CLICK
         private void manualBtn_Click(object sender, RoutedEventArgs e)
         {

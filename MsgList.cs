@@ -23,6 +23,7 @@ namespace NBMFS
                 messageList = new List<Message>();
             }
         }
+
         //Checks to see if any list instance is currently active. If active instance is present, returns instance.
         public static MsgList Instance()
         {
@@ -78,6 +79,18 @@ namespace NBMFS
         public string sender { get; set; }
         public string subject { get; set; }
         public string content { get; set; }
+
+        internal MsgList MsgList
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
 
         public Message(string i, string sen, string sub, string con)
         {
